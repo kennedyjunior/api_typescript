@@ -1,5 +1,5 @@
 # api_typescript
-API ddependencies:
+API dependencies:
 -@prisma/client: 6.16.2
 -@types/express: 5.0.3
 -@types/node: 24.5.2,
