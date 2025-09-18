@@ -1,2 +1,10 @@
 # api_typescript
-API rest in typescript 
+API ddependencies:
+-@prisma/client: 6.16.2
+-@types/express: 5.0.3
+-@types/node: 24.5.2,
+-express: 5.1.0
+-prisma: 6.16.2
+-ts-node: 10.9.2
+-tsx: 4.20.5
+-typescript: 5.9.2
