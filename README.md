@@ -8,3 +8,6 @@ API ddependencies:
 -ts-node: 10.9.2
 -tsx: 4.20.5
 -typescript: 5.9.2
+-swagger-jsdoc: 6.2.8
+-swagger-ui-express: 5.0.1
+-zod: 4.1.11
