@@ -1,5 +1,5 @@
 # api_typescript
-API ddependencies:
+API dependencies:
 -@prisma/client: 6.16.2
 -@types/express: 5.0.3
 -@types/node: 24.5.2,
@@ -11,3 +11,4 @@ API ddependencies:
 -swagger-jsdoc: 6.2.8
 -swagger-ui-express: 5.0.1
 -zod: 4.1.11
+
