@@ -9,12 +9,33 @@ datasource db {
 }
 
 model User {
-  id           Int           @id @default(autoincrement())
-  nome         String
-  idade        Int
-  email        String        @unique
-  telefone     String
+  id                     Int       @id @default(autoincrement())
+  nome                   String
+  idade                  Int
+  email                  String    @unique
+  telefone               String    @unique
+  treinadorResponsavelId Int?      
+  Trainer                Trainer?  @relation(fields: [treinadorResponsavelId], references: [id])
 
   @@map("users")
 }
 
+model Plan {
+  id           Int    @id @default(autoincrement())
+  nome         String
+  valor        Int
+  duracaoEmMes Int
+
+  @@map("plans")
+}
+
+model Trainer {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  idade     Int
+  email     String   @unique
+  telefone  String   @unique
+  alunos    User[]
+
+  @@map("trainers")
+}

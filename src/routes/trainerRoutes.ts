@@ -1,18 +1,18 @@
 import { Router } from "express";
-import userController from "../controllers/userController";
+import trainerController from "../controllers/trainerController";
 
-const router = Router();
+const trainerRouter = Router();
 
 /**
  * @swagger
- * /users:
+ * /trainer:
  *   get:
- *     summary: Retorna todos os usuários
+ *     summary: Retorna todos os treinadores
  *     tags:
- *       - Users
+ *       - Trainers
  *     responses:
  *       200:
- *         description: Lista de usuários
+ *         description: Lista de treinadores
  *         content:
  *           application/json:
  *             schema:
@@ -25,25 +25,25 @@ const router = Router();
  *                   name:
  *                     type: string
  */
-router.get("/users", userController.getUsers);
+trainerRouter.get("/trainer", trainerController.getTrainer);
 
 /**
  * @swagger
- * /users/{id}:
+ * /trainer/{id}:
  *   get:
- *     summary: Retorna um usuário pelo ID
+ *     summary: Retorna um treinador pelo ID e todos seus alunos
  *     tags:
- *       - Users
+ *       - Trainers
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: number
- *         description: ID do usuário
+ *         description: ID do treinador
  *     responses:
  *       200:
- *         description: Usuário encontrado
+ *         description: treinador encontrado
  *         content:
  *           application/json:
  *             schema:
@@ -54,17 +54,17 @@ router.get("/users", userController.getUsers);
  *                 name:
  *                   type: string
  *       404:
- *         description: Usuário não encontrado
+ *         description: treinador não encontrado
  */
-router.get("/users/:id", userController.getUserById);
+trainerRouter.get("/trainer/:id", trainerController.getTrainerById);
 
 /**
  * @swagger
- * /users:
+ * /trainer:
  *   post:
- *     summary: Cria um novo usuário
+ *     summary: Cria um novo treinador
  *     tags:
- *       - Users
+ *       - Trainers
  *     requestBody:
  *       required: true
  *       content:
@@ -85,30 +85,28 @@ router.get("/users/:id", userController.getUserById);
  *                 type: string
  *               telefone:
  *                  type: string
- *               treinadorResponsavelId:
- *                  type: number
  *     responses:
  *       201:
- *         description: Usuário criado com sucesso
+ *         description: Treinador criado com sucesso
  *       400:
  *         description: Dados inválidos
  */
-router.post("/users", userController.createUser);
+trainerRouter.post("/trainer", trainerController.createTrainer);
 
 /**
  * @swagger
- * /users/{id}:
+ * /trainer/{id}:
  *   put:
- *     summary: Atualiza um usuário pelo ID
+ *     summary: Atualiza um trainador pelo ID
  *     tags:
- *       - Users
+ *       - Trainers
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: number
- *         description: ID do usuário
+ *         description: ID do treinador
  *     requestBody:
  *       required: true
  *       content:
@@ -120,34 +118,34 @@ router.post("/users", userController.createUser);
  *                 type: string
  *     responses:
  *       200:
- *         description: Usuário atualizado com sucesso
+ *         description: Treinador atualizado com sucesso
  *       400:
  *         description: Dados inválidos
  *       404:
- *         description: Usuário não encontrado
+ *         description: Treinador não encontrado
  */
-router.put("/users/:id", userController.updateUser);
+trainerRouter.put("/trainer/:id", trainerController.updateTrainer);
 
 /**
  * @swagger
- * /users/{id}:
+ * /trainers/{id}:
  *   delete:
- *     summary: Remove um usuário pelo ID
+ *     summary: Remove um treinador pelo ID
  *     tags:
- *       - Users
+ *       - Trainers
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: number
- *         description: ID do usuário
+ *         description: ID do treinador
  *     responses:
  *       200:
- *         description: Usuário removido com sucesso
+ *         description: Treinador removido com sucesso
  *       404:
- *         description: Usuário não encontrado
+ *         description: Treinador não encontrado
  */
-router.delete("/users/:id", userController.deleteUser);
+trainerRouter.delete("/trainers/:id", trainerController.deleteTrainer);
 
-export default router;
+export default trainerRouter;

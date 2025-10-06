@@ -6,6 +6,7 @@ interface UserCreateData {
   idade: number;
   email: string;
   telefone: string;
+  treinadorResponsavelId: number;
 }
 
 interface UserUpdateData {

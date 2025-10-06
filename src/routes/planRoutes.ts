@@ -1,18 +1,18 @@
 import { Router } from "express";
-import userController from "../controllers/userController";
+import planController from "../controllers/planController";
 
-const router = Router();
+const planRouter = Router();
 
 /**
  * @swagger
- * /users:
+ * /plans:
  *   get:
- *     summary: Retorna todos os usuários
+ *     summary: Retorna todos os planos
  *     tags:
- *       - Users
+ *       - Plans
  *     responses:
  *       200:
- *         description: Lista de usuários
+ *         description: Lista de planos
  *         content:
  *           application/json:
  *             schema:
@@ -24,26 +24,30 @@ const router = Router();
  *                     type: number
  *                   name:
  *                     type: string
+ *                   valor:
+ *                     type: number
+ *                   duracaoEmMes:
+ *                     type: number
  */
-router.get("/users", userController.getUsers);
+planRouter.get("/plans", planController.getPlans);
 
 /**
  * @swagger
- * /users/{id}:
+ * /plans/{id}:
  *   get:
- *     summary: Retorna um usuário pelo ID
+ *     summary: Retorna um plano pelo ID
  *     tags:
- *       - Users
+ *       - Plans
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: number
- *         description: ID do usuário
+ *         description: ID do plano
  *     responses:
  *       200:
- *         description: Usuário encontrado
+ *         description: Plano encontrado
  *         content:
  *           application/json:
  *             schema:
@@ -54,17 +58,17 @@ router.get("/users", userController.getUsers);
  *                 name:
  *                   type: string
  *       404:
- *         description: Usuário não encontrado
+ *         description: Plano não encontrado
  */
-router.get("/users/:id", userController.getUserById);
+planRouter.get("/plans/:id", planController.getPlanById);
 
 /**
  * @swagger
- * /users:
+ * /plans:
  *   post:
- *     summary: Cria um novo usuário
+ *     summary: Cria um novo plano
  *     tags:
- *       - Users
+ *       - Plans
  *     requestBody:
  *       required: true
  *       content:
@@ -73,42 +77,38 @@ router.get("/users/:id", userController.getUserById);
  *             type: object
  *             required:
  *               - nome
- *               - idade
- *               - email
- *               - telefone
+ *               - valor
+ *               - duracaoEmMes
  *             properties:
  *               nome:
  *                 type: string
- *               idade:
+ *               valor:
  *                  type: number
- *               email:
- *                 type: string
- *               telefone:
- *                  type: string
- *               treinadorResponsavelId:
- *                  type: number
+ *               duracaoEmMes:
+ *                 type: number
+ *               
  *     responses:
  *       201:
- *         description: Usuário criado com sucesso
+ *         description: Plano criado com sucesso
  *       400:
  *         description: Dados inválidos
  */
-router.post("/users", userController.createUser);
+planRouter.post("/plans", planController.createPlan);
 
 /**
  * @swagger
- * /users/{id}:
+ * /plans/{id}:
  *   put:
- *     summary: Atualiza um usuário pelo ID
+ *     summary: Atualiza um plano pelo ID
  *     tags:
- *       - Users
+ *       - Plans
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: number
- *         description: ID do usuário
+ *         description: ID do plano
  *     requestBody:
  *       required: true
  *       content:
@@ -120,34 +120,34 @@ router.post("/users", userController.createUser);
  *                 type: string
  *     responses:
  *       200:
- *         description: Usuário atualizado com sucesso
+ *         description: Plano atualizado com sucesso
  *       400:
  *         description: Dados inválidos
  *       404:
- *         description: Usuário não encontrado
+ *         description: Plano não encontrado
  */
-router.put("/users/:id", userController.updateUser);
+planRouter.put("/plans/:id", planController.updatePlan);
 
 /**
  * @swagger
- * /users/{id}:
+ * /plans/{id}:
  *   delete:
- *     summary: Remove um usuário pelo ID
+ *     summary: Remove um plano pelo ID
  *     tags:
- *       - Users
+ *       - Plans
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: number
- *         description: ID do usuário
+ *         description: ID do plano
  *     responses:
  *       200:
- *         description: Usuário removido com sucesso
+ *         description: Plano removido com sucesso
  *       404:
- *         description: Usuário não encontrado
+ *         description: Plano não encontrado
  */
-router.delete("/users/:id", userController.deleteUser);
+planRouter.delete("/plans/:id", planController.deletePlan);
 
-export default router;
+export default planRouter;
