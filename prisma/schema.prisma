@@ -14,10 +14,20 @@ model User {
   idade                  Int
   email                  String    @unique
   telefone               String    @unique
+  senha                  String
+  role                   Role @default(ALUNO)
+
+  planoAluno             Int?
+  Plan                   Plan? @relation(fields: [planoAluno], references: [id])
   treinadorResponsavelId Int?      
   Trainer                Trainer?  @relation(fields: [treinadorResponsavelId], references: [id])
 
   @@map("users")
+}
+
+enum Role{
+  ALUNO
+  ADMIN
 }
 
 model Plan {
@@ -25,6 +35,8 @@ model Plan {
   nome         String
   valor        Int
   duracaoEmMes Int
+
+  alunos       User[]
 
   @@map("plans")
 }

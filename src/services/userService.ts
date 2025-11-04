@@ -1,11 +1,14 @@
 import prisma from "../db/prisma";
 import { User } from "../generated/prisma";
+import bcrypt from "bcryptjs";
 
 interface UserCreateData {
   nome: string;
   idade: number;
   email: string;
   telefone: string;
+  senha: string;
+  planoAluno?: number; 
   treinadorResponsavelId: number;
 }
 
@@ -14,12 +17,36 @@ interface UserUpdateData {
   idade?: number;
   email?: string;
   telefone?: string;
+  senha?: string;
+  planoAluno?: number; 
 }
 
 const userService = {
-  async getUsers(): Promise<User[]> {
-    return prisma.user.findMany();
-  },
+  async getUsers(): Promise<any[]> {
+    return prisma.user.findMany({
+      select:{
+        id: true,
+        nome: true,
+        idade: true,  
+        email: true,
+        telefone: true,
+      Plan:{
+        select:{
+        id: true,        
+        nome: true,
+        valor: true,  
+        },
+      },
+      Trainer:{
+        select:{
+          id: true,
+          nome: true,
+        },
+      },
+    },
+  });
+},
+
 
   async getUserById(id: number): Promise<User | null> {
     return prisma.user.findUnique({ where: { id } });

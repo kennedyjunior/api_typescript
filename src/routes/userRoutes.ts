@@ -85,6 +85,10 @@ router.get("/users/:id", userController.getUserById);
  *                 type: string
  *               telefone:
  *                  type: string
+ *               senha:
+ *                 type: string
+ *               planoAluno:
+ *                type: integer
  *               treinadorResponsavelId:
  *                  type: number
  *     responses:
