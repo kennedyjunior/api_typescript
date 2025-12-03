@@ -17,6 +17,9 @@ const options = {
       {
         url: "https://api-typescript-pi.vercel.app",
         description: "server de produção"  
+      },{
+        url: "https://api-typescript-jk9zy086z-kennedyjuniors-projects.vercel.app",
+        description: "server de produção2"  
       },
 
     ],
