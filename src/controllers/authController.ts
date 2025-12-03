@@ -38,9 +38,11 @@ export const login = async (req: Request, res: Response) => {
     const senhaOk = await bcrypt.compare(senha, user.senha);
     if (!senhaOk) return res.status(401).json({ message: "Credenciais inválidas" });
 
-    const token = jwt.sign({ id: user.id, email: user.email }, jwtConfig.secret, {
-      expiresIn: jwtConfig.expiresIn
-    });
+    const token = jwt.sign(
+      { id: user.id, email: user.email },
+      jwtConfig.secret as jwt.Secret,
+      { expiresIn: "1h" }
+    );
 
     return res.json({ message: "Login feito", token });
   } catch (err) {

@@ -5,6 +5,7 @@ interface TrainerCreateData {
   nome: string;
   idade: number;
   email: string;
+  senha: string;
   telefone: string;
 }
 

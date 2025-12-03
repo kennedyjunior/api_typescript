@@ -97,9 +97,12 @@ const trainerController = {
       const senhaOk = await bcrypt.compare(senha, trainer.senha);
       if (!senhaOk) return res.status(401).json({ message: "Credenciais inválidas" });
 
-      const token = jwt.sign({ id: trainer.id, email: trainer.email, role: "trainer" }, jwtConfig.secret, {
-        expiresIn: jwtConfig.expiresIn
-      });
+      
+const token = jwt.sign(
+  { id: trainer.id, email: trainer.email },
+  jwtConfig.secret as jwt.Secret,
+  { expiresIn: "1h" }
+);
 
       return res.json({ message: "Login do treinador feito", token });
     } catch (err) {
