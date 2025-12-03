@@ -28,3 +28,4 @@ app.listen(port, () => {
   console.log(`API da academia rodando na porta ${port}`);
   console.log(`Swagger UI disponível em http://localhost:${port}/api-docs`);
 });
+export default app;
