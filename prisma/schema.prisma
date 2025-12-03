@@ -19,7 +19,7 @@ model User {
 
   planoAluno             Int?
   Plan                   Plan? @relation(fields: [planoAluno], references: [id])
-  treinadorResponsavelId Int?      
+  treinadorResponsavelId Int?     
   Trainer                Trainer?  @relation(fields: [treinadorResponsavelId], references: [id])
 
   @@map("users")
