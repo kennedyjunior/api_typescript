@@ -1,16 +1,26 @@
 import express, { Express } from "express";
+import cors from "cors";
 import userRoutes from "./routes/userRoutes";
 import planRoutes from "./routes/planRoutes";
 import trainerRoutes from "./routes/trainerRoutes";
 import { setupSwagger } from "./swagger";
+import authRoutes from "./routes/authRoutes";
 
 const app: Express = express();
 const port: number = 3000;
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(express.json());
 app.use(userRoutes);
 app.use(planRoutes);
 app.use(trainerRoutes);
+app.use("/auth", authRoutes);
 
 setupSwagger(app);
 

@@ -52,6 +52,10 @@ const userService = {
     return prisma.user.findUnique({ where: { id } });
   },
 
+  async getUserByEmail(email: string): Promise<User | null> {
+    return prisma.user.findUnique({ where: { email } });
+  },
+
   async createUser(data: UserCreateData): Promise<User> {
     return prisma.user.create({ data });
   },

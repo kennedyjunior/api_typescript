@@ -46,8 +46,10 @@ model Trainer {
   nome      String
   idade     Int
   email     String   @unique
+  senha     String
   telefone  String   @unique
   alunos    User[]
+  role      Role @default(ADMIN)
 
   @@map("trainers")
 }
