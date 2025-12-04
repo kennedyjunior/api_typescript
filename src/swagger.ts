@@ -19,9 +19,17 @@ const options = {
         url: "https://api-typescript-pi.vercel.app",
         description: "server de produção"  
       },
+      {
+        url: "https://api-typescript-pi.vercel.app",
+        description: "server de produção"  
+      },{
+        url: "https://api-typescript-jk9zy086z-kennedyjuniors-projects.vercel.app",
+        description: "server de produção2"  
+      },
+
     ],
   },
-  apis: ["./src/routes/*.ts"],
+  apis: ["./src/routes/*.ts", "./dist/routes/*.js"],
 };
 
 const swaggerSpec = swaggerJsDoc(options);
@@ -32,6 +40,6 @@ export const setupSwagger = (app: Express) => {
     customJs: [
       "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-bundle.js",
       "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-standalone-preset.js"
-    ]
-  }));
+    ]
+  }));
 };
