@@ -1,5 +1,5 @@
 import prisma from "../db/prisma";
-import { User } from "../generated/prisma";
+import { User } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
 interface UserCreateData {

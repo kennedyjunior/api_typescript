@@ -1,5 +1,5 @@
 import prisma from "../db/prisma";
-import { Plan } from "../generated/prisma";
+import { Plan } from "@prisma/client";
 
 interface PlanCreateData {
   nome: string;
