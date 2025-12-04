@@ -1,5 +1,5 @@
 import prisma from "../db/prisma";
-import { Trainer } from "../generated/prisma";
+import { Trainer } from "@prisma/client";
 
 interface TrainerCreateData {
   nome: string;
