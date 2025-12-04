@@ -2,13 +2,12 @@
   "name": "api_typescript",
   "version": "1.0.0",
   "description": "API rest in typescript",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
   "dev": "tsx watch src/index.ts",
   "build": "tsc",
   "start": "node dist/index.js",
-  "vercel-build": "tsc",
-  "postinstall": "prisma generate"
+  "vercel-build": "tsc && prisma db push && prisma generate"
 
 },
   "repository": {
