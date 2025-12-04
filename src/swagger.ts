@@ -13,18 +13,23 @@ const options = {
     servers: [
       {
         url: "http://localhost:3000",
+        description: "server local"
       },
       {
         url: "https://api-typescript-pi.vercel.app",
         description: "server de produção"  
-      },{
-        url: "https://api-typescript-jk9zy086z-kennedyjuniors-projects.vercel.app",
-        description: "server de produção2"  
       },
-
+      {
+        url: "https://api-typescript-jk9zy086z-kennedyjuniors-projects.vercel.app",
+        description: "server de produção 2"  
+      },
+      {
+        url: "https://api-typescript-346sgh02t-brenomflima7436-1787s-projects.vercel.app",
+        description: "server de produção 3"  
+      },
     ],
   },
-  apis: ["./src/routes/*.ts", "./dist/routes/*.js"],
+  apis: [__dirname + "/routes/*.ts", __dirname + "/routes/*.js"],
 };
 
 const swaggerSpec = swaggerJsDoc(options);

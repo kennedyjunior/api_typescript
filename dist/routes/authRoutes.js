@@ -1,9 +1,12 @@
-import { Router } from "express";
-import { register, login } from "../controllers/authController";
-import trainerController from "../controllers/trainerController";
-
-const router = Router();
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const authController_1 = require("../controllers/authController");
+const trainerController_1 = __importDefault(require("../controllers/trainerController"));
+const router = (0, express_1.Router)();
 /**
  * @swagger
  * /auth/register:
@@ -34,8 +37,7 @@ const router = Router();
  *       400:
  *         description: Dados inválidos
  */
-router.post("/register", register);
-
+router.post("/register", authController_1.register);
 /**
  * @swagger
  * /auth/login:
@@ -63,8 +65,7 @@ router.post("/register", register);
  *       401:
  *         description: Credenciais inválidas
  */
-router.post("/login", login);
-
+router.post("/login", authController_1.login);
 /**
  * @swagger
  * /auth/trainer/register:
@@ -95,8 +96,7 @@ router.post("/login", login);
  *       400:
  *         description: Dados inválidos
  */
-router.post("/trainer/register", trainerController.trainerRegister);
-
+router.post("/trainer/register", trainerController_1.default.trainerRegister);
 /**
  * @swagger
  * /auth/trainer/login:
@@ -124,6 +124,5 @@ router.post("/trainer/register", trainerController.trainerRegister);
  *       401:
  *         description: Credenciais inválidas
  */
-router.post("/trainer/login", trainerController.trainerLogin);
-
-export default router;
+router.post("/trainer/login", trainerController_1.default.trainerLogin);
+exports.default = router;
