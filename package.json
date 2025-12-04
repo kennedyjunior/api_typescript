@@ -10,7 +10,6 @@
   "vercel-build": "tsc",
   "postinstall": "prisma migrate deploy && prisma generate"
 
-
 },
   "repository": {
     "type": "git",
