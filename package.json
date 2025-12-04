@@ -7,8 +7,8 @@
   "dev": "tsx watch src/index.ts",
   "build": "tsc",
   "start": "node dist/index.js",
-  "vercel-build": "tsc",
-  "postinstall": "prisma generate"
+  "vercel-build": "tsc && prisma generate"
+
 },
   "repository": {
     "type": "git",
