@@ -2,7 +2,7 @@
   "name": "api_typescript",
   "version": "1.0.0",
   "description": "API rest in typescript",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
   "dev": "tsx watch src/index.ts",
   "build": "tsc",
